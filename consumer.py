@@ -45,7 +45,7 @@ def send_order(name):
     
 def run_consumer():
     consumer_thread = Thread(target = lambda: app.run(host = '0.0.0.0', port = 4080, debug = False, use_reloader = False), daemon = True)
-    consumer_thread.start()
+    threads.append(consumer_thread)
     sleep(2)
     consumer_thread_name = 1
     for _ in range(7):
@@ -57,8 +57,6 @@ def run_consumer():
         sleep(2)
     for thread in threads:
         thread.join()
-    while True:
-        pass
     
 if __name__ == '__main__':
     run_consumer()
