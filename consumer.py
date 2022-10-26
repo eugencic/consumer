@@ -57,8 +57,6 @@ def run_consumer():
         sleep(2)
     for thread in threads:
         thread.join()
-    while True:
-        pass
     
 if __name__ == '__main__':
     run_consumer()
